@@ -1,0 +1,7 @@
+- MySQL là một hệ quản trị cơ sở dữ liệu quan hệ (RDBMS) mã nguồn mở, được phát triển bởi công ty MySQL AB (sau này thuộc Oracle Corporation). Nó được sử dụng để lưu trữ, quản lý và truy xuất dữ liệu cho các ứng dụng khác nhau, từ trang web nhỏ đến hệ thống lớn.
+- MySQL sử dụng SQL (Structured Query Language) làm ngôn ngữ chính để tương tác với cơ sở dữ liệu.
+
+- Ba trường hợp thực tế mà MySQL có thể được sử dụng:
+1. Hiệu suất cao: MySQL được tối ưu hóa để xử lý các truy vấn nhanh và hiệu quả, đặc biệt phù hợp với các ứng dụng yêu cầu tốc độ cao.
+2. Hỗ trợ đa nền tảng: MySQL có thể hoạt động trên nhiều hệ điều hành khác nhau như Windows, macOS, Linux, và Unix.
+3. Mã nguồn mở: MySQL là một phần mềm mã nguồn mở, cho phép các nhà phát triển tự do sử dụng, tùy chỉnh và tích hợp vào các hệ thống của họ. Đồng thời, nó cũng có phiên bản thương mại với các tính năng bổ sung.
