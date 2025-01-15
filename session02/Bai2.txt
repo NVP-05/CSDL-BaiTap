@@ -1,0 +1,57 @@
+a) Định nghĩa và ví dụ minh họa của 3 ràng buộc:
+1. PRIMARY KEY (Khóa chính)
+
+Định nghĩa:
+PRIMARY KEY là ràng buộc được sử dụng để đảm bảo giá trị trong cột hoặc tập hợp cột là duy nhất và không có giá trị NULL. Mỗi bảng chỉ có thể có một PRIMARY KEY.
+Ví dụ:
+sql
+Sao chép mã
+CREATE TABLE SinhVien (
+    MaSV INT PRIMARY KEY,
+    HoTen VARCHAR(100),
+    NgaySinh DATE
+);
+2. NOT NULL (Không được để trống)
+
+Định nghĩa:
+Ràng buộc NOT NULL được sử dụng để đảm bảo một cột không được phép chứa giá trị NULL (trống).
+Ví dụ:
+sql
+Sao chép mã
+CREATE TABLE MonHoc (
+    MaMH INT PRIMARY KEY,
+    TenMH VARCHAR(100) NOT NULL,
+    SoTinChi INT
+);
+3. FOREIGN KEY (Khóa ngoại)
+
+Định nghĩa:
+FOREIGN KEY là ràng buộc dùng để tạo mối quan hệ giữa hai bảng. Nó đảm bảo rằng giá trị trong cột hoặc tập hợp cột phải tồn tại trong cột khóa chính của bảng khác.
+Ví dụ:
+sql
+Sao chép mã
+CREATE TABLE Lop (
+    MaLop INT PRIMARY KEY,
+    TenLop VARCHAR(100)
+);
+
+CREATE TABLE SinhVien (
+    MaSV INT PRIMARY KEY,
+    HoTen VARCHAR(100),
+    MaLop INT,
+    FOREIGN KEY (MaLop) REFERENCES Lop(MaLop)
+);
+
+b) Tại sao cần sử dụng ràng buộc trong cơ sở dữ liệu?
+1. Đảm bảo tính toàn vẹn dữ liệu:
+Ràng buộc giúp đảm bảo dữ liệu trong cơ sở dữ liệu chính xác và hợp lệ, ví dụ: không có giá trị trùng lặp hoặc không hợp lệ.
+
+2. Duy trì tính nhất quán:
+Ràng buộc như FOREIGN KEY đảm bảo rằng các mối quan hệ giữa các bảng được duy trì, ngăn ngừa các lỗi như "khóa ngoại tham chiếu tới một giá trị không tồn tại."
+
+3. Hạn chế lỗi nhập dữ liệu:
+Với ràng buộc như NOT NULL, bạn có thể tránh được việc lưu trữ các giá trị trống trong các cột quan trọng.
+
+4. Tăng hiệu suất truy vấn:
+Sử dụng PRIMARY KEY và FOREIGN KEY giúp cải thiện tốc độ truy vấn bằng cách tổ chức dữ liệu tốt hơn.
+

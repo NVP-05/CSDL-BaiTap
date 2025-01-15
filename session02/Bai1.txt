@@ -1,0 +1,13 @@
+a) Liệt kê 5 kiểu dữ liệu cơ bản thường dùng trong SQL:
+INT: Kiểu số nguyên, dùng để lưu trữ các giá trị nguyên (vd: 1, 100, -50).
+VARCHAR(n): Kiểu chuỗi ký tự, dùng để lưu trữ chuỗi văn bản có độ dài tối đa n ký tự.
+DATE: Kiểu dữ liệu ngày, dùng để lưu trữ ngày tháng (vd: 2025-01-01).
+FLOAT hoặc DOUBLE: Kiểu số thực, dùng để lưu trữ các giá trị thập phân (vd: 3.14, 100.25).
+BOOLEAN: Kiểu logic, dùng để lưu trữ giá trị đúng (TRUE) hoặc sai (FALSE).
+
+b) Xác định kiểu dữ liệu phù hợp cho các cột:
+
+MaSV: INT
+HoTen: VARCHAR(100)
+NgaySinh: DATE
+DiemTrungBinh: FLOAT
