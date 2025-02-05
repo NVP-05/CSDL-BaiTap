@@ -1,23 +1,27 @@
-create database Bai2;
-use Bai2;
-create table Supplier(
-	SupplierID int primary key,
-    NameSupplier varchar(50)
+CREATE DATABASE bai2;
+USE bai2;
+
+CREATE TABLE supplier (
+    supplier_id INT PRIMARY KEY,
+    name_supplier VARCHAR(50)
 );
-create table Material(
-	MaterialID int primary key,
-    NameMaterial varchar(50)
+
+CREATE TABLE material (
+    material_id INT PRIMARY KEY,
+    name_material VARCHAR(50)
 );
-create table address(
-	IDAddress int primary key,
-    SupplierID int,
-    foreign key(SupplierID) references Supplier(SupplierID)
+
+CREATE TABLE address (
+    address_id INT PRIMARY KEY,
+    supplier_id INT,
+    FOREIGN KEY (supplier_id) REFERENCES supplier (supplier_id)
 );
-create table Purchase(
-	SupplierID int,
-    MaterialID int,
-    price decimal(20,5),
-    Quantity int,
-    foreign key(SupplierID) references Supplier(SupplierID),
-    foreign key(MaterialID) references Material(MaterialID)
+
+CREATE TABLE purchase (
+    supplier_id INT,
+    material_id INT,
+    price DECIMAL(20, 5),
+    quantity INT,
+    FOREIGN KEY (supplier_id) REFERENCES supplier (supplier_id),
+    FOREIGN KEY (material_id) REFERENCES material (material_id)
 );

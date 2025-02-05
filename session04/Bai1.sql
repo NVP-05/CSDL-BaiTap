@@ -1,27 +1,31 @@
-create database Bai1;
-use Bai1;
-create table MachineRoom(
-	IDMachineRoom int primary key,
-    NameManager varchar(50),
-    NameRoom varchar(50)
+CREATE DATABASE bai1;
+USE bai1;
+
+CREATE TABLE machine_room (
+    machine_room_id INT PRIMARY KEY,
+    name_manager VARCHAR(50),
+    name_room VARCHAR(50)
 );
-create table computer(
-	IDComputer int primary key,
-    HardDriveCapacity varchar(50),
-    RAMCapacity varchar(50),
-    CPUSpeed varchar(50),
-    IDMachineRoom int,
-    foreign key(IDMachineRoom) references MachineRoom(IDMachineRoom)
+
+CREATE TABLE computer (
+    computer_id INT PRIMARY KEY,
+    hard_drive_capacity VARCHAR(50),
+    ram_capacity VARCHAR(50),
+    cpu_speed VARCHAR(50),
+    machine_room_id INT,
+    FOREIGN KEY (machine_room_id) REFERENCES machine_room (machine_room_id)
 );
-create table Subjects(
-	IdSubject int primary key,
-    NameSubject varchar(50),
-    CourseDuration int
+
+CREATE TABLE subjects (
+    subject_id INT PRIMARY KEY,
+    name_subject VARCHAR(50),
+    course_duration INT
 );
-create table signIn(
-	RegistrationDate varchar(50),
-    IDMachineRoom int,
-    IdSubject int,
-    foreign key(IDMachineRoom) references MachineRoom(IDMachineRoom),
-    foreign key(IdSubject) references Subjects(IdSubject)
+
+CREATE TABLE sign_in (
+    registration_date VARCHAR(50),
+    machine_room_id INT,
+    subject_id INT,
+    FOREIGN KEY (machine_room_id) REFERENCES machine_room (machine_room_id),
+    FOREIGN KEY (subject_id) REFERENCES subjects (subject_id)
 );
