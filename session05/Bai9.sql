@@ -74,7 +74,7 @@ VALUES
 
 INSERT INTO medical_records (patient_id, doctor_id, diagnosis, treatment_plan)
 VALUES
-    (1, 2, 'Cam Cum', 'Nghi ngoi, uong nhieu nuoc, su dung paracetamol 500mg khi sot.'),
+(1, 2, 'Cam Cum', 'Nghi ngoi, uong nhieu nuoc, su dung paracetamol 500mg khi sot.'),
     (3, 1, 'Dau Dau Man Tinh', 'Kiem tra huyet ap dinh ky, giam cang thang, su dung thuoc giam dau khi can.'),
     (5, 3, 'Roi Loan Nhip Tim', 'Theo doi tim mach 1 tuan/lan, dung thuoc dieu hoa nhip tim.'),
     (2, 4, 'Dau Cot Song', 'Vat ly tri lieu, giam van dong manh.'),
@@ -84,7 +84,7 @@ VALUES
     (8, 8, 'Hen Suyen', 'Su dung thuoc xit hen hang ngay, tranh tiep xuc bui ban.'),
     (9, 9, 'Gay Xuong', 'Bo bot, kiem tra xuong dinh ky, vat ly tri lieu sau khi thao bot.');
 
-
+-- 3
 SELECT p.full_name AS patient_name, d.full_name AS doctor_name, 
        a.appointment_date, d.specialization, a.status
 FROM appointments a
@@ -94,7 +94,7 @@ WHERE a.appointment_date BETWEEN '2025-01-20' AND '2025-01-25'
 ORDER BY a.appointment_date ASC
 LIMIT 3;
 
-
+-- 4
 SELECT p.full_name AS patient_name, p.date_of_birth, 
        d.full_name AS doctor_name, d.specialization, m.diagnosis
 FROM appointments a
@@ -106,17 +106,15 @@ WHERE a.appointment_date BETWEEN '2025-01-20' AND '2025-01-25'
 ORDER BY a.appointment_date ASC
 LIMIT 5;
 
-
+-- 5
 SELECT 
-    p.full_name AS patient_name,
-    p.date_of_birth,
-    TIMESTAMPDIFF(YEAR, p.date_of_birth, a.appointment_date) AS age_at_appointment,
-    a.appointment_date,
-    m.record_id,
-    DATEDIFF(a.appointment_date, CURDATE()) AS days_difference
-FROM appointments a
-JOIN patients p ON a.patient_id = p.patient_id
-JOIN medical_records m ON a.patient_id = m.patient_id 
-                      AND a.doctor_id = m.doctor_id
-WHERE a.appointment_date BETWEEN '2025-01-20' AND '2025-01-25'
-ORDER BY a.appointment_date ASC;
+    p.Full_Name AS Patient_Name, 
+    p.Date_Of_Birth, 
+    floor(DATEDIFF(a.Appointment_Date, p.Date_Of_Birth)/365.25) AS Age_At_Appointment,
+    a.Appointment_Date, 
+    a.Appointment_Date AS Diagnosis_Date, 
+    DATEDIFF(a.Appointment_Date, p.Date_Of_Birth) AS Days_Difference
+FROM Patients p
+JOIN Appointments a ON p.Patient_ID = a.Patient_ID
+JOIN Medical_Records mr ON p.Patient_ID = mr.Patient_ID
+ORDER BY a.Appointment_Date ASC;
