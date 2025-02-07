@@ -54,13 +54,14 @@ WHERE (
 ORDER BY p.full_name, d.full_name, a.appointment_date;
 
 -- 6. Hiển thị danh sách bệnh nhân và bác sĩ kèm thông tin cuộc hẹn, chẩn đoán
-SELECT 
-    CONCAT('BỆNH NHÂN: ', UPPER(p.full_name), ' - BÁC SĨ: ', UPPER(d.full_name)) AS patient_doctor,
-    a.appointment_date,
-    m.diagnosis,
-    a.status
-FROM appointments a
-JOIN patients p ON a.patient_id = p.patient_id
-JOIN doctors d ON a.doctor_id = d.doctor_id
-JOIN medicalrecords m ON a.appointment_id = m.record_id
-ORDER BY a.appointment_date ASC;
+select
+    UPPER(p.full_name) as PatientNam,
+    UPPER(d.full_name) as DoctorName,
+    a.appointment_date as AppointmentDate,
+    year(a.appointment_date) as AppointmentYear,
+    a.status as AppointmentStatus
+from appointments a
+join patients p on a.patient_id = p.patient_id
+join doctors d on a.doctor_id = d.doctor_id
+join medical_records m on a.appointment_id = m.record_id
+order by a.appointment_date asc;
