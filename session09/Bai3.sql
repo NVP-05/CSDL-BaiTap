@@ -12,7 +12,7 @@ create index idx_country on customers(country);
 -- 4
 explain analyze select * from customers c
 where c.country = "Germany";
--- Sau khi gắn index chạy chậm hơn
+-- Sau khi gắn index chạy nhanh hơn
 
 -- 5
 drop index idx_country on customers;
