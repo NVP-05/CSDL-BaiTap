@@ -47,7 +47,7 @@ end &&
 DELIMITER &&
 call GetTrackCountByAlbum(1,@total_track);
 select @total_track;
--- cau 7
+-- cau 8
 drop view View_Album_Artist ;
 drop view View_Customer_Spending ;
 drop index idx_Employee_LastName  on customer(LastName );

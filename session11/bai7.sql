@@ -70,3 +70,13 @@ end &&
 DELIMITER &&
 call GetTopSellingTracks(1,3);
 drop procedure GetTopSellingTracks;
+
+-- cau 10
+drop view view_track_details;
+drop view view_customer_invoice;
+drop view view_top_selling_tracks;
+drop index  idx_track_name on track;
+drop index idx_invoice_total on invoice;
+drop procedure if exists get_customer_spending;
+drop procedure if exists search_track_by_keyword;
+drop procedure if exists get_top_selling_tracks;
